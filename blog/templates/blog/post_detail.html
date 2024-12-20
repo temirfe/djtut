@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{{ object.title }}</h2>
+  <div>{{ post.author }} | {{ post.created_on }}</div>
+  <div>
+    {% if object.image %}<img src="{{ object.image.url }}" alt="My Image" height=100 width=100 />{% endif %}
+  </div>
+  <div>{{ post.body | safe | linebreaksbr }}</div>
+  <h2>Comments</h2>
+  {% for comment in comments %}
+    <div>
+      <strong>{{ comment.name }}</strong>
+      <p>{{ comment.body }}</p>
+    </div>
+  {% endfor %}
+  <h3>Add a Comment</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Comment</button>
+  </form>
+{% endblock content %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="keywords" content="foo,bar" />
+        <meta name="description" content="foo" />
+        <meta charset="utf-8">
+        <title>My Personal Site</title>
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    </head>
+    <body>
+        <h1>My Personal site</h1>
+        <a href="{% url "blog:post_list" %}">Blog</a>
+        <hr>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
